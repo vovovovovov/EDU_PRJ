@@ -5,9 +5,6 @@ import csv
     提取word 层次化结构的知识
 '''
 
-
-
-
 def extract_hierarchy(doc_path):
     doc = Document(doc_path)
     hierarchy = []
@@ -57,7 +54,7 @@ def save_to_csv(hierarchy, csv_path):
 
 
 # 文档路径
-doc_path = 'D:\PycharmProject_new\EDU_PRJ\Data_Process\data\信息技术与数据挖掘-2021-8-16.docx'
+doc_path = 'data/信息技术与数据挖掘-2021-8-16.docx'
 csv_path = 'output_data/output.csv'
 
 hierarchy = extract_hierarchy(doc_path)
