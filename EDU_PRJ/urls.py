@@ -1,5 +1,5 @@
 """
-URL configuration for BlueLM_prj project.
+URL configuration for EDU_PRJ project.
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/5.0/topics/http/urls/
@@ -16,7 +16,8 @@ Including another URLconf
 """
 # from django.contrib import admin
 from django.contrib import admin
-from django.urls import re_path, include
+from django.urls import re_path, include, path
+from app001 import views
 
 # remain to use...
 # router = routers.DefaultRouter()
@@ -26,6 +27,8 @@ from django.urls import re_path, include
 # 使用自动URL路由连接我们的API。
 # 另外，我们还包括支持浏览器浏览API的登录URL。
 urlpatterns = [
+    # 主页面
+    path('', views.main_page),
     re_path('admin/', admin.site.urls),
     re_path('v1/', include('app001.urls')),
     re_path('index', include('app001.urls')),

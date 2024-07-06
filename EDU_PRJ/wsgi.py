@@ -1,5 +1,5 @@
 """
-WSGI config for BlueLM_prj project.
+WSGI config for EDU_PRJ project.
 
 It exposes the WSGI callable as a module-level variable named ``application``.
 
@@ -11,6 +11,6 @@ import os
 
 from django.core.wsgi import get_wsgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'BlueLM_prj.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'EDU_PRJ.settings')
 
 application = get_wsgi_application()

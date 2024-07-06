@@ -1,5 +1,5 @@
 """
-ASGI config for BlueLM_prj project.
+ASGI config for EDU_PRJ project.
 
 It exposes the ASGI callable as a module-level variable named ``application``.
 
@@ -11,6 +11,6 @@ import os
 
 from django.core.asgi import get_asgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'BlueLM_prj.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'EDU_PRJ.settings')
 
 application = get_asgi_application()
