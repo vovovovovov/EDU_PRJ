@@ -2,9 +2,63 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>初始界面</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChatGPT Chat Window</title>
+    <style>
+        body { font-family: Arial, sans-serif; }
+        #chatContainer { width: 500px; margin: 50px auto; border: 1px solid #ccc; padding: 10px; }
+        #messages { height: 400px; overflow-y: auto; border-bottom: 1px solid #ccc; padding-bottom: 10px; margin-bottom: 10px; }
+        .message { margin: 10px 0; }
+        .message.user { text-align: right; }
+        #inputContainer { display: flex; }
+        #inputContainer input { flex: 1; padding: 10px; border: 1px solid #ccc; }
+        #inputContainer button { padding: 10px; border: 1px solid #ccc; background: #007bff; color: #fff; cursor: pointer; }
+    </style>
 </head>
 <body>
+    <div id="chatContainer">
+        <div id="messages"></div>
+        <div id="inputContainer">
+            <input type="text" id="userInput" placeholder="Type your message here..." />
+            <button onclick="sendMessage()">Send</button>
+        </div>
+    </div>
 
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+        const apiKey = 'YOUR_OPENAI_API_KEY';
+        const messagesContainer = document.getElementById('messages');
+
+        function appendMessage(text, sender) {
+            const message = document.createElement('div');
+            message.className = `message ${sender}`;
+            message.textContent = text;
+            messagesContainer.appendChild(message);
+            messagesContainer.scrollTop = messagesContainer.scrollHeight;
+        }
+
+        function sendMessage() {
+            const userInput = document.getElementById('userInput').value;
+            if (userInput.trim() === '') return;
+
+            appendMessage(userInput, 'user');
+            document.getElementById('userInput').value = '';
+
+            axios.post('https://api.openai.com/v1/engines/davinci-codex/completions', {
+                prompt: userInput,
+                max_tokens: 150
+            }, {
+                headers: { 'Authorization': `Bearer ${apiKey}` }
+            })
+            .then(response => {
+                const botReply = response.data.choices[0].text.trim();
+                appendMessage(botReply, 'bot');
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                appendMessage('Error: Unable to fetch response from API', 'bot');
+            });
+        }
+    </script>
 </body>
 </html>

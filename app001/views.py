@@ -74,17 +74,23 @@ def chat(request):
 
     return render(request, 'main.html', context)
 
+
 # TODO  主页面
 '''
     主页面: http://127.0.0.1:8000
 '''
+
+
 def main_page(request):
     return render(request, 'main_page.html')
+
 
 # TODO 对话功能交互实现
 '''
     接受参数：用户提出的问题
     返回参数：回答
 '''
+
+
 def chat_part(request):
     return render(request, 'main.html')
