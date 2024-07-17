@@ -3,61 +3,125 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ChatGPT Chat Window</title>
+    <title>智海</title>
     <style>
-        body { font-family: Arial, sans-serif; }
-        #chatContainer { width: 500px; margin: 50px auto; border: 1px solid #ccc; padding: 10px; }
-        #messages { height: 400px; overflow-y: auto; border-bottom: 1px solid #ccc; padding-bottom: 10px; margin-bottom: 10px; }
-        .message { margin: 10px 0; }
-        .message.user { text-align: right; }
-        #inputContainer { display: flex; }
-        #inputContainer input { flex: 1; padding: 10px; border: 1px solid #ccc; }
-        #inputContainer button { padding: 10px; border: 1px solid #ccc; background: #007bff; color: #fff; cursor: pointer; }
+        body {
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            margin: 0;
+        }
+        nav {
+            background-color: #333;
+            color: white;
+            padding: 1em;
+            display: flex;
+            justify-content: space-between;
+        }
+        #main {
+            display: flex;
+            flex: 1;
+        }
+        #content {
+            flex: 1;
+            padding: 1em;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        #chatContainer {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            border: 1px solid #ccc;
+            margin-bottom: 1em;
+        }
+        #messages {
+            flex: 1;
+            padding: 1em;
+            overflow-y: auto;
+            border-bottom: 1px solid #ccc;
+        }
+        #inputContainer {
+            display: flex;
+        }
+        #inputContainer input {
+            flex: 1;
+            padding: 0.5em;
+        }
+        #inputContainer button {
+            padding: 0.5em;
+        }
+        #gallery {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+        #gallery img {
+            max-width: 200px;
+            margin: 10px;
+        }
+        #buttons {
+            width: 200px;
+            background-color: #f4f4f4;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            padding: 1em;
+        }
+        #buttons button {
+            margin: 10px 0;
+            padding: 10px;
+            background-color: #333;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
-    <div id="chatContainer">
-        <div id="messages"></div>
-        <div id="inputContainer">
-            <input type="text" id="userInput" placeholder="Type your message here..." />
-            <button onclick="sendMessage()">Send</button>
+    <nav>
+        <div>Logo</div>
+        <div>Home | About | Services | Contact</div>
+    </nav>
+    <div id="main">
+        <div id="content">
+            <div id="chatContainer">
+                <div id="messages"></div>
+                <div id="inputContainer">
+                    <input type="text" id="userInput" placeholder="Type your message here..." />
+                    <button onclick="sendMessage()">发送</button>
+                </div>
+            </div>
+            <div id="gallery">
+                <img src="https://via.placeholder.com/200" alt="Sample Image 1">
+                <img src="https://via.placeholder.com/200" alt="Sample Image 2">
+                <img src="https://via.placeholder.com/200" alt="Sample Image 3">
+                <img src="https://via.placeholder.com/200" alt="Sample Image 4">
+                <img src="https://via.placeholder.com/200" alt="Sample Image 5">
+            </div>
+        </div>
+        <div id="buttons">
+            <button onclick="window.location.href='#'">课前预习</button>
+            <button onclick="window.location.href='#'">科中巩固</button>
+            <button onclick="window.location.href='#'">课后复习</button>
+            <button onclick="window.location.href='#'">问题答疑</button>
+            <button onclick="window.location.href='#'">remain to fill</button>
         </div>
     </div>
-
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script>
-        const apiKey = 'YOUR_OPENAI_API_KEY';
-        const messagesContainer = document.getElementById('messages');
-
-        function appendMessage(text, sender) {
-            const message = document.createElement('div');
-            message.className = `message ${sender}`;
-            message.textContent = text;
-            messagesContainer.appendChild(message);
-            messagesContainer.scrollTop = messagesContainer.scrollHeight;
-        }
-
         function sendMessage() {
-            const userInput = document.getElementById('userInput').value;
-            if (userInput.trim() === '') return;
+            const userInput = document.getElementById('userInput');
+            const messages = document.getElementById('messages');
+            const message = userInput.value.trim();
 
-            appendMessage(userInput, 'user');
-            document.getElementById('userInput').value = '';
-
-            axios.post('https://api.openai.com/v1/engines/davinci-codex/completions', {
-                prompt: userInput,
-                max_tokens: 150
-            }, {
-                headers: { 'Authorization': `Bearer ${apiKey}` }
-            })
-            .then(response => {
-                const botReply = response.data.choices[0].text.trim();
-                appendMessage(botReply, 'bot');
-            })
-            .catch(error => {
-                console.error('Error:', error);
-                appendMessage('Error: Unable to fetch response from API', 'bot');
-            });
+            if (message) {
+                const messageElement = document.createElement('div');
+                messageElement.textContent = message;
+                messages.appendChild(messageElement);
+                userInput.value = '';
+                messages.scrollTop = messages.scrollHeight;
+            }
         }
     </script>
 </body>
