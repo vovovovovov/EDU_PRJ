@@ -123,4 +123,4 @@ if __name__ == '__main__':
     # data = embedding(list)
     # print(data)
     # embedding()
-    # ocr_test("data/img.png")
+    # ocr_test("data/label_2.png")

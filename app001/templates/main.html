@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,6 +12,7 @@
             height: 100vh;
             margin: 0;
         }
+
         nav {
             background-color: #333;
             color: white;
@@ -18,10 +20,12 @@
             display: flex;
             justify-content: space-between;
         }
+
         #main {
             display: flex;
             flex: 1;
         }
+
         #content {
             flex: 1;
             padding: 1em;
@@ -29,6 +33,7 @@
             flex-direction: column;
             justify-content: space-between;
         }
+
         #chatContainer {
             flex: 1;
             display: flex;
@@ -36,31 +41,38 @@
             border: 1px solid #ccc;
             margin-bottom: 1em;
         }
+
         #messages {
             flex: 1;
             padding: 1em;
             overflow-y: auto;
             border-bottom: 1px solid #ccc;
         }
+
         #inputContainer {
             display: flex;
         }
+
         #inputContainer input {
             flex: 1;
             padding: 0.5em;
         }
+
         #inputContainer button {
             padding: 0.5em;
         }
+
         #gallery {
             display: flex;
             justify-content: space-around;
             flex-wrap: wrap;
         }
+
         #gallery img {
             max-width: 200px;
             margin: 10px;
         }
+
         #buttons {
             width: 200px;
             background-color: #f4f4f4;
@@ -69,6 +81,7 @@
             justify-content: space-around;
             padding: 1em;
         }
+
         #buttons button {
             margin: 10px 0;
             padding: 10px;
@@ -80,49 +93,64 @@
     </style>
 </head>
 <body>
-    <nav>
-        <div>Logo</div>
-        <div>Home | About | Services | Contact</div>
-    </nav>
-    <div id="main">
-        <div id="content">
-            <div id="chatContainer">
-                <div id="messages"></div>
-                <div id="inputContainer">
-                    <input type="text" id="userInput" placeholder="Type your message here..." />
-                    <button onclick="sendMessage()">发送</button>
-                </div>
-            </div>
-            <div id="gallery">
-                <img src="https://via.placeholder.com/200" alt="Sample Image 1">
-                <img src="https://via.placeholder.com/200" alt="Sample Image 2">
-                <img src="https://via.placeholder.com/200" alt="Sample Image 3">
-                <img src="https://via.placeholder.com/200" alt="Sample Image 4">
-                <img src="https://via.placeholder.com/200" alt="Sample Image 5">
+<nav>
+    <div>Logo</div>
+    <div>Home | About | Services | Contact</div>
+</nav>
+<div id="main">
+    <div id="content">
+        <div id="chatContainer">
+            <div id="messages">{{ initial_message }}</div>
+            <div id="inputContainer">
+                <input type="text" id="userInput" placeholder="Type your message here..."/>
+                <button onclick="sendMessage()">发送</button>
             </div>
         </div>
-        <div id="buttons">
-            <button onclick="window.location.href='#'">课前预习</button>
-            <button onclick="window.location.href='#'">科中巩固</button>
-            <button onclick="window.location.href='#'">课后复习</button>
-            <button onclick="window.location.href='#'">问题答疑</button>
-            <button onclick="window.location.href='#'">remain to fill</button>
+        <div id="gallery">
+            <img src="{% static 'img/label_1.png' %}" alt="Sample Image 1">
+            <img src="{% static 'img/label_2.png' %}" alt="Sample Image 2">
+            <img src="{% static 'img/label_3.png' %}" alt="Sample Image 3">
+            <img src="{% static 'img/label_4.png' %}" alt="Sample Image 4">
         </div>
     </div>
-    <script>
-        function sendMessage() {
-            const userInput = document.getElementById('userInput');
-            const messages = document.getElementById('messages');
-            const message = userInput.value.trim();
+    <div id="buttons">
+        <button onclick="window.location.href='#'">课前预习</button>
+        <button onclick="window.location.href='#'">科中巩固</button>
+        <button onclick="window.location.href='#'">课后复习</button>
+        <button onclick="window.location.href='#'">问题答疑</button>
+        <button onclick="window.location.href='#'">remain to fill</button>
+    </div>
+</div>
+<script>
+    function sendMessage() {
+        const userInput = document.getElementById('userInput');
+        const messages = document.getElementById('messages');
+        const message = userInput.value.trim();
 
-            if (message) {
-                const messageElement = document.createElement('div');
-                messageElement.textContent = message;
-                messages.appendChild(messageElement);
-                userInput.value = '';
-                messages.scrollTop = messages.scrollHeight;
-            }
+        if (message) {
+            const messageElement = document.createElement('div');
+            messageElement.textContent = message;
+            messages.appendChild(messageElement);
+            userInput.value = '';
+            messages.scrollTop = messages.scrollHeight;
+
+            fetch('{% url "chat_part" %}', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRFToken': '{{ csrf_token }}'
+                },
+                body: JSON.stringify({message: message})
+            })
+                .then(response => response.json())
+                .then(data => {
+                    const responseElement = document.createElement('div');
+                    responseElement.textContent = data.response;
+                    messages.appendChild(responseElement);
+                    messages.scrollTop = messages.scrollHeight;
+                });
         }
-    </script>
+    }
+</script>
 </body>
 </html>

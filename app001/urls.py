@@ -8,7 +8,8 @@ urlpatterns = [
     re_path(r'^articles/$', views.ArticleList.as_view()),
     re_path(r'^articles/(?P<pk>[0-9]+)$', views.ArticleDetail.as_view()),
     re_path(r'home', views.index),
-    re_path(r'chat_part', views.chat_part),
+    re_path(r'chat_part', views.chat_part, name='chat_part'),
+    re_path(r'data_increase', views.data_increase),
 
 ]
 

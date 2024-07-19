@@ -3,8 +3,12 @@ from rest_framework import status
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from django.http import Http404
+
+from API.BlueLM_api import sync_vivogpt
 from .models import Article
 from .serializers import ArticleSerializer
+from django.http import JsonResponse
+import json
 
 
 class ArticleList(APIView):
@@ -93,4 +97,16 @@ def main_page(request):
 
 
 def chat_part(request):
-    return render(request, 'main.html')
+    if request.method == 'POST':
+        data = json.loads(request.body)
+        user_message = data.get('message')
+        if user_message:
+            response = sync_vivogpt(user_message, '系统提示', 0.7)  # 根据需要传递参数
+            return JsonResponse({'response': response})
+    return render(request, 'main.html', {'initial_message': '你好'})
+
+
+def data_increase(request):
+    """使用sqlite3添加数据"""
+    
+    return None
