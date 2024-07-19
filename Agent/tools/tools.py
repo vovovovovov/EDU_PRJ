@@ -1,11 +1,13 @@
 import json
 import os
 from langchain_community.tools.tavily_search import TavilySearchResults
+
+
 '''
-1.写文件
-2.读文件
-3.追加
-4.网络搜索
+    1.写文件
+    2.读文件
+    3.追加
+    4.网络搜索
 '''
 
 
@@ -34,7 +36,7 @@ def append_file(file_name, content):
         f.write(content)
     return "append content to file succeed"
 
-# 写入文件
+# TODO 写入文件
 def write_to_file(file_name, content):
     pass
 
@@ -60,22 +62,22 @@ def search(query):
 tools_info = [
     # 读文件
     {
-        "name" : "read_file",
-        "description" : "read file from agent generate,should write file befor read",
-        "args":[{
-            "name" : "file_name",
+        "name": "read_file",
+        "description": "read file from agent generate,should write file befor read",
+        "args": [{
+            "name": "file_name",
             "type": "string",
-            "description" : "read file name"
+            "description": "read file name"
         }]
     },
     # 增文件
     {
-        "name" : "append_file",
-        "description" : "append llm content to file,should write file befor read",
-        "args":[{
-            "name" : "file_name",
+        "name": "append_file",
+        "description": "append llm content to file,should write file befor read",
+        "args": [{
+            "name": "file_name",
             "type": "string",
-            "description" : "append to file content"
+            "description": "append to file content"
         }]
     },
     # TODO 写文件
@@ -91,23 +93,24 @@ tools_info = [
     # 网络搜索
     {
         "name": "search",
-        "description" : "搜索引擎,进行网络搜索",
-        "args":[{
-            "name" : "query",
+        "description": "搜索引擎,进行网络搜索",
+        "args": [{
+            "name": "query",
             "type": "string",
-            "description" : "search query to look up"
+            "description": "search query to look up"
         }]
     },
 ]
 
 tools_map = {
-    "read_file" : read_file,
-    "append_file" : append_file,
-    "write_file" : write_to_file,
-    "search" : search
+    "read_file": read_file,
+    "append_file": append_file,
+    "write_file": write_to_file,
+    "search": search
 }
 
-def gen_tool_desc():
+# tools的prompt描述
+def generate_tool_describe():
     tools_desc  = []
     for idx, t in enumerate(tools_info):
         args_desc = []
