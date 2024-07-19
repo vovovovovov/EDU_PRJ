@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, HttpResponse
 from rest_framework import status
 from rest_framework.response import Response
 from rest_framework.views import APIView
@@ -103,10 +103,15 @@ def chat_part(request):
         if user_message:
             response = sync_vivogpt(user_message, '系统提示', 0.7)  # 根据需要传递参数
             return JsonResponse({'response': response})
-    return render(request, 'main.html', {'initial_message': '你好'})
+    return render(request, 'main.html', {'initial_message': '您好！我是智海小助手，很高兴为您服务。请问有什么可以帮您解决的问题吗？'})
 
 
 def data_increase(request):
     """使用sqlite3添加数据"""
     
     return None
+
+
+def chat_teac(request):
+
+    return HttpResponse("OK")

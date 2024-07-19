@@ -30,8 +30,8 @@ urlpatterns = [
     # 主页面
     path('', views.main_page),
     re_path('admin/', admin.site.urls),
-    re_path('v1/', include('app001.urls')),
     re_path('index', include('app001.urls')),
+    # re_path('v1/', include('app001.urls')),
 ]
 # path('index/', index),
 # path('main/', chat),
