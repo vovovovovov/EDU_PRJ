@@ -1,6 +1,3 @@
-
-
-
 # agent入口
 
 """
@@ -12,7 +9,7 @@ todo:
 """
 import time
 from tools.tools import tools_map
-from prompt import gen_prompt
+from prompt import generate_prompt
 
 
 # 参数解析
@@ -58,7 +55,7 @@ def agent_execute(query, max_request_time=10):
         如果返回结果达到预期，则返回
         """
         # prompt功能：1.任务描述 2.工具描述 3.用户输入（user_msg） 4.assistant_msg  5.限制 6.更好的实践描述
-        prompt = gen_prompt(query, agent_scrach)
+        prompt = generate_prompt(query, agent_scrach)
         start_time = time.time()
         print("****************{},开始调用大模型...".format(cur_request_tiem),flush=True)
         # TODO 大模型调用

@@ -1,2 +1,0 @@
-[console_scripts]
-multirag-cli = multirag.__main__:main

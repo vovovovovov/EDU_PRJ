@@ -1,4 +1,4 @@
-from tools.tools import gen_tool_desc
+from tools.tools import generate_tool_describe
 
 # 提示词模板
 
@@ -25,18 +25,34 @@ best_practices = [
     "利用你的信息收集能力来寻找你不知道的信息"
 ]
 
+# 提示词模板
 prompt_template = """
-    你是一个问答专家，你必须始终独立做出决策，无需用户的帮助，发挥你作为LLLM的优势，追求简洁的策略，不要涉及法律问题
-    目标:{query}
-    限制条件说明:{constraints}
-    动作说明:任何操作都需要基于以下操作实现{actions}
-    资源说明:{resource}
-    最佳实践说明:{best_practies}
-    agent_scratch:{agent_scratch}
-    你应该只以json格式返回，响应格式如下:{response_format_prompt}
-    确保响应结果可以由python json.loads解析
+你是一个问答专家，你必须始终独立做出决策，无需用户的帮助，发挥你作为LLLM的优势，追求简洁的策略，不要涉及法律问题
+
+目标:
+{query}
+
+限制条件说明:
+{constraints}
+
+动作说明:任何操作都需要基于以下操作实现:
+{actions}
+
+资源说明:
+{resource}
+
+最佳实践说明:
+{best_practices}
+
+agent_scratch:
+{agent_scratch}
+    
+你应该只以json格式返回，响应格式如下:
+{response_format_prompt}
+确保响应结果可以由python json.loads解析
 """
 
+# 响应模板
 response_format_prompt ="""
  {
     "action":{
@@ -55,19 +71,21 @@ response_format_prompt ="""
 }
 """
 
-action_prompt = gen_tool_desc()
+action_prompt = generate_tool_describe()
 constraints_prompt = "\n".join([f"{idx+1}. {con}" for idx, con in enumerate(constraints)])
 resource_prompt = "\n".join([f"{idx+1}. {con}" for idx, con in enumerate(resource)])
 best_practices_prompt = "\n".join([f"{idx+1}. {con}" for idx, con in enumerate(best_practices)])
 
-def gen_prompt(query,agent_scratch):
+def generate_prompt(query,agent_scratch):
     prompt = prompt_template.format(
         query=query,
         constraints=constraints_prompt,
         actions=action_prompt,
-        resources=resource_prompt,
-        best_practices = best_practices_prompt,
+        resource=resource_prompt,
+        best_practices=best_practices_prompt,
         agent_scratch=agent_scratch,
         response_format_prompt= response_format_prompt,
 
     )
+    print(prompt)
+generate_prompt("什么是爱情",agent_scratch="这个参数是什么意思")
