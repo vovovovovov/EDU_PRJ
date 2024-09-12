@@ -28,10 +28,5 @@ from app001 import views
 # 另外，我们还包括支持浏览器浏览API的登录URL。
 urlpatterns = [
     # 主页面
-    path('', views.main_page),
-    re_path('admin/', admin.site.urls),
-    re_path('index', include('app001.urls')),
-    # re_path('v1/', include('app001.urls')),
+
 ]
-# path('index/', index),
-# path('main/', chat),
