@@ -17,6 +17,14 @@ http://127.0.0.1:8000/index/chat_part
 地址：
 
 > http://localhost:8000/index/chat_part
+> 
+>
+> 
+> 
+
+
+# TODO LIST
+1. 前端优化：Vue?
 
 
    

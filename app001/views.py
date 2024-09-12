@@ -94,14 +94,12 @@ def main_page(request):
     接受参数：用户提出的问题
     返回参数：回答
 '''
-
-
 def chat_part(request):
     if request.method == 'POST':
         data = json.loads(request.body)
         user_message = data.get('message')
         if user_message:
-            response = sync_vivogpt(user_message, '系统提示', 0.7)  # 根据需要传递参数
+            response = sync_vivogpt(user_message,"你是教学小助手",0.7)  # 根据需要传递参数
             return JsonResponse({'response': response})
     return render(request, 'main.html', {'initial_message': '您好！我是智海小助手，很高兴为您服务。请问有什么可以帮您解决的问题吗？'})
 
