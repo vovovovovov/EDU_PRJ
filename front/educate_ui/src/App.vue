@@ -1,23 +1,30 @@
 <script setup>
-import HelloWorld from './components/HelloWorld.vue'
-import TheWelcome from './components/TheWelcome.vue'
+
+import LayoutNav from '@/layout/components/LayoutNav.vue'
+import LayoutHeader from '@/layout/components/LayoutHeader.vue'
+import LayoutFooter from '@/layout/components/LayoutFooter.vue'
+
 </script>
 
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
 
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-    </div>
-  </header>
 
-  <main>
-    <TheWelcome />
-  </main>
+<!--  主页面整体布局-->
+  <LayoutNav />
+  <LayoutHeader />
+  <LayoutFooter />
+
+
 </template>
 
-<style scoped>
+
+
+
+
+
+<style scoped lang="scss">
+
+
 header {
   line-height: 1.5;
 }
