@@ -1,8 +1,8 @@
 <script setup>
 
-import LayoutNav from '@/layout/components/LayoutNav.vue'
-import LayoutHeader from '@/layout/components/LayoutHeader.vue'
-import LayoutFooter from '@/layout/components/LayoutFooter.vue'
+import LayoutNav from '@/views/layout/components/LayoutNav.vue'
+import LayoutHeader from '@/views/layout/components/LayoutHeader.vue'
+import LayoutFooter from '@/views/layout/components/LayoutFooter.vue'
 
 </script>
 
@@ -10,9 +10,9 @@ import LayoutFooter from '@/layout/components/LayoutFooter.vue'
 
 
 <!--  主页面整体布局-->
-  <LayoutNav />
-  <LayoutHeader />
-  <LayoutFooter />
+
+  <RouterView />
+
 
 
 </template>
