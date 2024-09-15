@@ -40,10 +40,13 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'app001.apps.RetrievalConfig',
-    'rest_framework'
+    'corsheaders',  # 跨域
+    'rest_framework',
+    'app_education'   # 教育app
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',   # 跨域中间件
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -51,7 +54,12 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+
 ]
+
+CORS_ALLOW_ALL_ORIGINS = True  # 跨域支持
+
+
 
 ROOT_URLCONF = 'EDU_PRJ.urls'
 

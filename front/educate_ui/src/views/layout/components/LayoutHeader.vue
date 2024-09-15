@@ -13,8 +13,8 @@
         <li class="home">
           <RouterLink to="/">首页</RouterLink>
         </li>
-        <li> <RouterLink to="/">AI对话</RouterLink> </li>
-        <li> <RouterLink to="/">AI Agent</RouterLink> </li>
+        <li> <RouterLink to="/AiChat">AI对话</RouterLink> </li>
+        <li> <RouterLink to="/AiAgent">AI Agent</RouterLink> </li>
         <li> <RouterLink to="/">数据分析</RouterLink> </li>
       </ul>
       <div class="search">
@@ -42,7 +42,7 @@
     width: 200px;
     a {
       display: block;
-      height: 132px;
+      height: 160px;
       width: 100%;
       text-indent: -9999px;
       background: url('@/assets/images/logo.png') no-repeat center 18px / contain;
@@ -53,7 +53,7 @@
   .app-header-nav {
     width: 820px;
     display: flex;
-    padding-left: 40px;
+    padding-left: 80px;
     position: relative;
     z-index: 998;
 
@@ -61,6 +61,7 @@
       margin-right: 40px;
       width: 80px;     //设置导航栏字数长度
       text-align: center;
+
     }
   }
 

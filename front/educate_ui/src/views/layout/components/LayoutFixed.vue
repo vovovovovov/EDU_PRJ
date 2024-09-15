@@ -24,7 +24,7 @@ const { y } = useScroll(window)
 <style scoped lang='scss'>
 .app-header-sticky {
   width: 100%;
-  height: 80px;
+  height: 200px;
   position: fixed;
   left: 0;
   top: 0;
@@ -50,7 +50,7 @@ const { y } = useScroll(window)
 
   .logo {
     width: 200px;
-    height: 80px;
+    height: 160px;
     background: url("@/assets/images/logo.png") no-repeat right 2px;
     background-size: 160px auto;
   }

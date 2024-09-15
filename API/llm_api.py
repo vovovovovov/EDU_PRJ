@@ -30,7 +30,7 @@ def llm_api(question):
     )]
     handler = ChunkPrintHandler()
     a = spark.generate([messages], callbacks=[handler])
-
+    return a.generations[0][0].text
 
 if __name__ == '__main__':
     spark = ChatSparkLLM(

@@ -4,7 +4,7 @@ import axios from 'axios'
 
 // 创建axios实例
 const HttpInstance = axios.create({
-  baseURL: 'http://localhost',
+  baseURL: 'http://pcapi-xiaotuxian-front-devtest.itheima.net',
   timeout: 50000
 })
 
