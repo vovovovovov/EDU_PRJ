@@ -9,10 +9,17 @@ import Components from 'unplugin-vue-components/vite'
 import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
 import ElementPlus from 'unplugin-element-plus/vite'
 
+import vuetify from 'vite-plugin-vuetify'
+
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
     vue(),
+
+    //vuetify
+    vuetify({
+      autoImport: true,
+    }),
 
 
     // element组件

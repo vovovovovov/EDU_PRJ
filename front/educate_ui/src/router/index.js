@@ -17,18 +17,18 @@ const router = createRouter({
       component: Layout,
 
       // 子路由
-      children: [
-        {
-          path:'',
-          component:Home
-        },
-          
-        // AiAgent设计
-        {
-          path: '/AiAgent',
-          component: AiAgent
-        },
-      ],
+      // children: [
+      //   {
+      //     path:'',
+      //     component:Home
+      //   },
+      //
+      //   // AiAgent设计
+      //   {
+      //     path: '/AiAgent',
+      //     component: AiAgent
+      //   },
+      // ],
     },
 
     //登陆界面
