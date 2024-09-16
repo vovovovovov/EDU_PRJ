@@ -1,8 +1,4 @@
 <script setup>
-// import LayoutNav from '@/views/layout/components/LayoutNav.vue'
-// import LayoutHeader from '@/views/layout/components/LayoutHeader.vue'
-// import LayoutFooter from '@/views/layout/components/LayoutFooter.vue'
-// import LayoutFixed from "@/views/layout/components/LayoutFixed.vue";
 
 // 新首页
 import AboutSection from "@/views/layout/components/AboutSection.vue";
@@ -40,29 +36,9 @@ watch(fab, (value) => {
   }
 });
 
-// 定义 onScroll 方法
-const onScroll = (e) => {
-  if (typeof window === 'undefined') return;
-  const top = window.pageYOffset || e.target.scrollTop || 0;
-  fab.value = top > 60;
-};
-
-// 定义 toTop 方法
-const toTop = () => {
-  window.scrollTo({
-    top: 0,
-    behavior: 'smooth',
-  });
-};
-
 </script>
 
 <template>
-<!--  <LayoutFixed/>-->
-<!--  <LayoutNav />-->
-<!--  <LayoutHeader />-->
-<!--  <RouterView />-->
-<!--  <LayoutFooter />-->
   <v-app>
     <!-- 1. 导航栏组件 -->
     <NavigationSection :color="color" :flat="flat" />

@@ -1,4 +1,3 @@
-
 import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router/index'
@@ -17,4 +16,3 @@ app.use(router)
 app.use(vuetify)
 
 app.mount('#app')
-// createApp(App).mount('#app')
