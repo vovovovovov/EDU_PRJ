@@ -3,7 +3,7 @@
 // 新首页
 import AboutSection from "@/views/layout/components/AboutSection.vue";
 import ContactSection from "@/views/layout/components/ContactSection.vue";
-import DownloadSection from "@/views/layout/components/DownloadSection.vue";
+import DemoSection from "@/views/layout/components/DemoSection.vue";
 import FooterSection from "@/views/layout/components/FooterSection.vue";
 import HomeSection from "@/views/layout/components/HomeSection.vue";
 import NavigationSection from "@/views/layout/components/NavigationSection.vue";
@@ -48,7 +48,7 @@ watch(fab, (value) => {
     <v-main class="pt-0">
       <HomeSection />
       <AboutSection />
-      <DownloadSection />
+      <DemoSection />
       <!-- <pricing /> -->
       <ContactSection />
     </v-main>

@@ -1,11 +1,11 @@
 <script setup>
-import AiChat from "@/views/AiChat/compononts/AiChat.vue";
+import AiChat from "@/views/demo/components/AiChat.vue";
 </script>
 
 <template>
   <AiChat/>
-</template>
 
+</template>
 
 <style scoped lang="scss">
 
