@@ -1,9 +1,11 @@
 <script setup>
+import AgentSection from "@/views/AiAgent/components/AgentSection.vue";
 
 </script>
 
 <template>
-这里是AiAgent设计
+
+  <AgentSection/>
 </template>
 
 <style scoped lang="scss">

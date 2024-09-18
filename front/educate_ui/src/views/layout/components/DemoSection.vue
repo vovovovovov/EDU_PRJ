@@ -21,7 +21,7 @@ import ill2Image from '@/assets/img/ill2.svg';
                 助学生在学术海洋中高效地导航，找到最适合的知识路径，提升学习效果。这个平台融合了大数据、人
                 工智能和教育理念，致力于为学生打造一个不断进步的智能学习助手。
               </h1>
-              <router-link to="/demo">
+              <router-link to="/AiAgent">
                 <v-btn
                   rounded
                   variant="outlined"
@@ -33,6 +33,7 @@ import ill2Image from '@/assets/img/ill2.svg';
                   开始使用
                 </v-btn>
               </router-link>
+
             </v-col>
           </v-row>
         </v-col>

@@ -7,7 +7,6 @@ import DemoSection from "@/views/layout/components/DemoSection.vue";
 import FooterSection from "@/views/layout/components/FooterSection.vue";
 import HomeSection from "@/views/layout/components/HomeSection.vue";
 import NavigationSection from "@/views/layout/components/NavigationSection.vue";
-// import PricingSection from "@/views/layout/components/PricingSection.vue";
 
 
 import { ref, onMounted, watch } from 'vue';
@@ -43,32 +42,17 @@ watch(fab, (value) => {
     <!-- 1. 导航栏组件 -->
     <NavigationSection :color="color" :flat="flat" />
 
-
      <!-- 2. 主要内容区域 -->
     <v-main class="pt-0">
       <HomeSection />
       <AboutSection />
       <DemoSection />
-      <!-- <pricing /> -->
       <ContactSection />
     </v-main>
 
-    <!-- 3. 返回顶部按钮(未完成) -->
-<!--    <v-scale-transition>-->
-<!--      <v-btn-->
-<!--        v-if="showButton"-->
-<!--        variant="fab"-->
-<!--        color="secondary"-->
-<!--        @click="toTop"-->
-<!--        class="position-fixed bottom-4 right-4"-->
-<!--      >-->
-<!--        <v-icon>mdi-arrow-up</v-icon>-->
-<!--      </v-btn>-->
-<!--    </v-scale-transition>-->
+    <!-- 3. 页脚组件(未完成) -->
+    <!--<FooterSection />-->
 
-
-    <!-- 4. 页脚组件(未完成) -->
-<!--    <FooterSection />-->
   </v-app>
 </template>
 
