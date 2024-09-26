@@ -100,7 +100,6 @@ const goToSection = (id) => {
               <div class="video d-flex align-center py-4">
                 <a @click.stop="dialog = true" class="playBut">
                   <!-- SVG 代码 -->
-                  <!-- （在此插入您的 SVG 代码） -->
                 </a>
                 <p class="subheading ml-2 mb-0">Watch the video</p>
               </div>
@@ -109,9 +108,9 @@ const goToSection = (id) => {
           </v-row>
         </v-col>
       </v-row>
-      <div class="svg-border-waves text-white">
-        <v-img src="@/assets/img/borderWaves.svg" />
-      </div>
+<!--      <div class="svg-border-waves text-white">-->
+<!--        <v-img src="@/assets/img/borderWaves.svg" />-->
+<!--      </div>-->
     </div>
 
     <!-- 特点部分(三个图片) -->

@@ -112,7 +112,7 @@ const scrollToSection = (sectionId) => {
           class="white--text mx-2"
           @click="scrollToSection('#pricing')"
         >
-          占位符
+          About
         </v-btn>
         <v-btn
           outlined

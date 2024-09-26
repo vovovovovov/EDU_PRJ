@@ -39,10 +39,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'app001.apps.RetrievalConfig',
     'corsheaders',  # 跨域
     'rest_framework',
-    'app_education'   # 教育app
+    'app_education.apps.AppEducationConfig',   # 教育app
 ]
 
 MIDDLEWARE = [
@@ -57,8 +56,8 @@ MIDDLEWARE = [
 
 ]
 
+# 开发使用
 CORS_ALLOW_ALL_ORIGINS = True  # 跨域支持
-
 
 
 ROOT_URLCONF = 'EDU_PRJ.urls'

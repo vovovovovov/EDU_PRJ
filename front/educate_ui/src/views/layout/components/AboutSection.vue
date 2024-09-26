@@ -18,7 +18,7 @@ import ill1 from '@/assets/img/ill1.svg';
               <!-- 更新标题样式 -->
               <h1 class="about-title">About</h1>
               <h1 class="about-subtitle">
-                Lorem ipsum dolor!
+                AI学海行 is all you need!
               </h1>
               <v-row>
                 <!-- 第一段内容 -->
@@ -26,27 +26,24 @@ import ill1 from '@/assets/img/ill1.svg';
                   <img :src="icon1" alt="Icon 1" style="width: 60px; margin-right: 16px;" />
 
                   <p class="text-justify">
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                    宏观把握学习路线，跨学科学习，确定人生发展方向。由于大语言模型掌握广泛的知识领域，
+                    它们能够帮助学生建立不同学科之间的联系，促进跨学科思维和学习，从而找到属于自己热爱的方向。
                   </p>
                 </v-col>
                 <!-- 第二段内容 -->
                 <v-col cols="12" class="flex-center">
                   <img :src="icon2" alt="Icon 1" style="width: 60px; margin-right: 16px;" />
                   <p class="text-justify">
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                    实时扩展的优质教育资源。与传统的教育资源（如教科书和实验材料）不同，
+                    大语言模型提供的是几乎无限的、实时更新的信息资源，这可以帮助学生接触到最前沿和最经典的学术和实践知识
                   </p>
                 </v-col>
                 <!-- 第三段内容 -->
                 <v-col cols="12" class="flex-center">
                   <img :src="icon3" alt="Icon 1" style="width: 60px; margin-right: 16px;" />
                   <p class="text-justify">
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                    个性化教育。大语言模型可以根据学生的学习速度、兴趣和需求提供个性化的教学内容和反馈，
+                    从而为每位学生量身定制学习路径。这种个性化可以帮助学生更有效地掌握知识。
                   </p>
                 </v-col>
               </v-row>

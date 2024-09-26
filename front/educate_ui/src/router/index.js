@@ -7,6 +7,9 @@ import Layout from '@/views/layout/index.vue'
 import Demo from '@/views/demo/index.vue'
 import AiAgent from '@/views/AiAgent/index.vue'
 import JavaSection from "@/views/AiAgent/components/JavaSection.vue";
+import AutoGenerageQuestion from "@/views/AiAgent/components/AutoGenerageQuestion.vue";
+import ComputerNetwork from "@/views/AiAgent/components/ComputerNetwork.vue";
+import StudyGuide from "@/views/AiAgent/components/StudyGuide.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -33,7 +36,6 @@ const router = createRouter({
     // 卡片详细页数
     {
       path:'/CardDetail',
-      // component:Demo,
 
       children:[
         {
@@ -42,19 +44,33 @@ const router = createRouter({
         },
 
         {
-          path: '3',
-          component:JavaSection,
-          beforeEnter() {
-          // 直接跳转到外部网址
-          window.location.href = 'https://zh.wikipedia.org/wiki/Java'; // 替换为你的目标网址
-          },
+          path:'2',
+          component:AutoGenerageQuestion
+        },
 
+        {
+          path: '3',
+          component:JavaSection
+          // beforeEnter() {
+          // // 直接跳转到外部网址
+          // window.location.href = 'https://zh.wikipedia.org/wiki/Java';
+          // },
+        },
+
+        {
+          path: '4',
+          component:ComputerNetwork
+        },
+
+        {
+          path: '7',
+          component:StudyGuide
         }
 
       ]
     },
 
-    //登陆界面(未实现)
+    //登陆界面(无用)
     {
       path: '/login',
       component: Login

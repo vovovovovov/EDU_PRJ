@@ -34,7 +34,7 @@ import borderWavesBlue from '@/assets/img/borderWavesBlue.svg';
             </v-col>
             <!-- 右侧图片 -->
             <v-col cols="12" sm="7">
-              <h1 style="width: 100%;height: 150px;display: block;line-height: 45px;text-align: center;">占位符</h1>
+              <img src="@/assets/img/contact.svg" alt="描述" style="width: 100%; height: 400px; display: block; text-align: center;">
             </v-col>
           </v-row>
         </v-col>

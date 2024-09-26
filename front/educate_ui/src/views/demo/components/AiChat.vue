@@ -3,6 +3,9 @@ import { ref, onMounted, nextTick } from 'vue';
 import { useRouter } from 'vue-router';
 import axios from 'axios';  // 导入 axios
 
+import AI from '@/assets/img/AI.png';
+import people from '@/assets/img/people.png'
+
 const router = useRouter();
 
 // 返回首页
@@ -110,7 +113,7 @@ const sendMessage = async () => {
       scrollToBottom();
     } catch (error) {
       console.error('发送消息失败', error);
-      // 您可以在此处显示错误提示
+      // 可以在此处显示错误提示
     }
   }
 };
@@ -158,7 +161,6 @@ onMounted(async () => {
       </ul>
     </div>
 
-
     <!-- 主聊天区域 -->
     <div class="main-chat">
       <!-- 返回主页按钮 -->
@@ -171,10 +173,10 @@ onMounted(async () => {
         <div
           v-for="message in messages"
           :key="message.id"
-          :class="['message', message.type === 'ai' ? 'ai-message' : 'user-message']"
+          :class="['message', message.sender === 'ai' ? 'ai-message' : 'user-message']"
         >
           <div class="avatar">
-            <img :src="message.type === 'ai' ? 'ai-avatar.png' : 'user-avatar.png'" alt="avatar">
+            <img :src="message.sender === 'ai' ? AI : people" alt="avatar">
           </div>
           <div class="content">
             <div class="bubble">{{ message.content }}</div>
@@ -198,10 +200,6 @@ onMounted(async () => {
     </div>
   </div>
 </template>
-
-
-
-
 
 <style scoped lang="scss">
 .chat-interface {
@@ -313,7 +311,7 @@ onMounted(async () => {
     .back-button {
       position: fixed;
       top: 20px;
-      left: 270px; /* 与侧边栏的宽度匹配 */
+      left: 270px;
       padding: 8px 16px;
       background-color: #007bff;
       color: #fff;
@@ -350,10 +348,6 @@ onMounted(async () => {
       margin-bottom: 15px;
       align-items: flex-end;
 
-      &.user-message {
-        flex-direction: row-reverse;
-      }
-
       .avatar {
         width: 40px;
         height: 40px;
@@ -385,6 +379,7 @@ onMounted(async () => {
       }
 
       &.ai-message {
+        flex-direction: row;  /* AI消息在左边 */
         .content {
           .bubble {
             background-color: #fff;
@@ -401,6 +396,7 @@ onMounted(async () => {
       }
 
       &.user-message {
+        flex-direction: row-reverse;  /* 用户消息在右边 */
         .content {
           .bubble {
             background-color: #007bff;
@@ -470,3 +466,4 @@ onMounted(async () => {
   content: '✖';
 }
 </style>
+

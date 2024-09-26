@@ -51,7 +51,7 @@ watch(fab, (value) => {
     </v-main>
 
     <!-- 3. 页脚组件(未完成) -->
-    <!--<FooterSection />-->
+<!--    <FooterSection />-->
 
   </v-app>
 </template>

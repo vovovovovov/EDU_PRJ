@@ -3,7 +3,7 @@ from rest_framework.response import Response
 from rest_framework import status, viewsets
 from .models import ChatSession, Message
 from .serializers import MessageSerializer, ChatSessionSerializer
-# 如果您有实际的 AI 模型，可以在这里导入
+# 大模型接口导入
 from API.llm_api import llm_api
 
 
@@ -53,3 +53,19 @@ class GenerateReplyView(APIView):
         # 返回 AI 回复
         serializer = MessageSerializer(ai_message_obj)
         return Response(serializer.data, status=status.HTTP_201_CREATED)
+
+
+# 题目生成
+class Generate_questions_view(APIView):
+    def post(self ,request):
+        prompt = request.data.get('prompt', '')
+
+        # 检测
+        if not prompt:
+            return Response({"error": "请提供提示内容！"}, status=status.HTTP_400_BAD_REQUEST)
+
+        # llm生成
+        selected_questions = llm_api(prompt)
+
+        return Response(selected_questions, status=status.HTTP_200_OK)
+
